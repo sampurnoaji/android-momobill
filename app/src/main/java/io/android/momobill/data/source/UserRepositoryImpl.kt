@@ -4,7 +4,7 @@ import io.android.momobill.data.dispatcher.DispatcherProvider
 import io.android.momobill.data.mapper.MoviesResponseMapper
 import io.android.momobill.domain.model.Movie
 import io.android.momobill.domain.repository.UserRepository
-import io.android.momobill.extension.mapApiResultToDomain
+import io.android.momobill.utils.mapApiResultToDomain
 import io.android.momobill.vo.LoadResult
 
 class UserRepositoryImpl(

@@ -1,4 +1,4 @@
-package io.android.momobill.ui
+package io.android.momobill.ui.login
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
