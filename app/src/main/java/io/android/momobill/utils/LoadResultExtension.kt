@@ -1,4 +1,4 @@
-package io.android.momobill.extension
+package io.android.momobill.utils
 
 import io.android.momobill.abstraction.Mapper
 import io.android.momobill.data.model.BaseResponse
