@@ -10,6 +10,7 @@ import io.android.momobill.vo.LoadResult
 
 class AuthRepositoryImpl(
     private val remoteDataSource: AuthRemoteDataSource,
+    private val localDataSource: AuthLocalDataSource,
     private val dispatcher: DispatcherProvider,
     private val loginResponseMapper: LoginResponseMapper
 ) : AuthRepository {
@@ -18,5 +19,13 @@ class AuthRepositoryImpl(
         val request = LoginRequest(username, password)
         val apiResult = remoteDataSource.login(dispatcher.io, request)
         return apiResult.mapApiResultToDomain(loginResponseMapper)
+    }
+
+    override fun saveUserData(username: String) {
+        localDataSource.saveUserData(username)
+    }
+
+    override fun getUsername(): String {
+        return localDataSource.getUsername()
     }
 }

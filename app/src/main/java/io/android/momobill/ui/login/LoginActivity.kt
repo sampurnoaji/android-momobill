@@ -7,12 +7,12 @@ import io.android.momobill.R
 import io.android.momobill.databinding.ActivityLoginBinding
 import io.android.momobill.domain.entity.LoginParams
 import io.android.momobill.ui.main.MainActivity
-import io.android.momobill.util.disable
-import io.android.momobill.util.enable
-import io.android.momobill.util.gone
+import io.android.momobill.util.delegate.viewBinding
+import io.android.momobill.util.extension.disable
+import io.android.momobill.util.extension.enable
+import io.android.momobill.util.extension.gone
+import io.android.momobill.util.extension.visible
 import io.android.momobill.util.start
-import io.android.momobill.util.viewbinding.viewBinding
-import io.android.momobill.util.visible
 import io.android.momobill.vo.LoadResult
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

@@ -12,6 +12,7 @@ val repositoryModule = module {
     single<AuthRepository> {
         AuthRepositoryImpl(
             remoteDataSource = get(),
+            localDataSource = get(),
             dispatcher = get(),
             loginResponseMapper = get()
         )

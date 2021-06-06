@@ -10,6 +10,10 @@ class LoginUseCase(private val repository: AuthRepository) :
     UseCase<LoginParams, LoadResult<LoginData>>() {
 
     override suspend fun invoke(params: LoginParams): LoadResult<LoginData> {
-        return repository.login(params.username, params.password)
+        val result = repository.login(params.username, params.password)
+        if (result is LoadResult.Success) {
+            repository.saveUserData(result.data.username)
+        }
+        return result
     }
 }
