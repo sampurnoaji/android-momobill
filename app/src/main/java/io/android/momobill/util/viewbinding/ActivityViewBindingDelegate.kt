@@ -1,4 +1,4 @@
-package io.android.momobill.utils.viewbinding
+package io.android.momobill.util.viewbinding
 
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity

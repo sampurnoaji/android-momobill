@@ -1,4 +1,4 @@
-package io.android.momobill.utils.viewbinding
+package io.android.momobill.util.viewbinding
 
 import android.view.View
 import androidx.fragment.app.Fragment
