@@ -3,10 +3,8 @@ package io.android.momobill.data.dto
 import com.squareup.moshi.Json
 
 data class BaseResponse(
-    @field:Json(name = "code")
-    val code: Int? = null,
-    @field:Json(name = "message")
-    val message: String? = null,
-    @field:Json(name = "success")
-    val success: Boolean? = null
+    @field:Json(name = "status")
+    val status: Int? = null,
+    @field:Json(name = "description")
+    val description: String? = null
 )

@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">Momobill</string>
-    <string name="title_activity_splash">FullscreenActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="close">Tutup</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
@@ -10,4 +8,20 @@
     <string name="invalid_password">Password salah</string>
     <string name="empty_username">Username kosong</string>
     <string name="empty_password">Password kosong</string>
+    <string name="empty_phone">Nomor Telepon kosong</string>
+    <string name="invalid_phone">Nomor Telepon tidak valid</string>
+    <string name="empty_email">Email kosong</string>
+    <string name="invalid_email">Email tidak valid</string>
+    <string name="name">Nama</string>
+    <string name="phone_number">Nomor Telepon</string>
+    <string name="email">Email</string>
+    <string name="password_confirm">Ulangi Password</string>
+    <string name="not_equal_password">Password tidak sama</string>
+    <string name="register">Register</string>
+    <string name="register_successful">Register berhasil</string>
+    <string name="register_failed">Register gagal</string>
+
+    <string name="title_activity_splash">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>

@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Momobill">
-        <activity android:name=".ui.login.LoginActivity"></activity>
+        <activity
+            android:name=".ui.register.RegisterActivity"
+            android:parentActivityName=".ui.login.LoginActivity" />
+        <activity android:name=".ui.login.LoginActivity" />
         <activity
             android:name=".ui.splash.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

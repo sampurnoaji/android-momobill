@@ -1,4 +1,4 @@
-package io.android.momobill.util
+package io.android.momobill.util.extension
 
 import io.android.momobill.abstraction.Mapper
 import io.android.momobill.data.dto.BaseResponse
@@ -14,7 +14,7 @@ fun <I, O> LoadResult<I>.mapApiResultToDomain(mapper: Mapper<I, O>): LoadResult<
 
 fun LoadResult<BaseResponse>.mapApiResultToSuccessOrFailure(): LoadResult<Boolean> {
     return when (this) {
-        is LoadResult.Success -> LoadResult.Success(this.data.success ?: false)
+        is LoadResult.Success -> LoadResult.Success(this.data.status == 200)
         is LoadResult.Error -> LoadResult.Error(this.cause, this.code, this.errorMessage, this.status)
         else -> LoadResult.Error()
     }

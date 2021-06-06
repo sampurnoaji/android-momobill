@@ -1,4 +1,4 @@
-package io.android.momobill.domain.entity
+package io.android.momobill.data.params
 
 data class LoginParams(
     val username: String,
