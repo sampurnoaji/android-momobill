@@ -1,7 +1,7 @@
-package io.android.momobill.utils
+package io.android.momobill.util
 
 import io.android.momobill.abstraction.Mapper
-import io.android.momobill.data.model.BaseResponse
+import io.android.momobill.data.dto.BaseResponse
 import io.android.momobill.vo.LoadResult
 
 fun <I, O> LoadResult<I>.mapApiResultToDomain(mapper: Mapper<I, O>): LoadResult<O> {

@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import io.android.momobill.R
 import io.android.momobill.ui.login.LoginActivity
-import io.android.momobill.utils.start
+import io.android.momobill.util.start
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

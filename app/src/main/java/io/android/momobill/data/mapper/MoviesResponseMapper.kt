@@ -1,8 +1,8 @@
 package io.android.momobill.data.mapper
 
 import io.android.momobill.abstraction.Mapper
-import io.android.momobill.data.model.MoviesResponse
-import io.android.momobill.domain.model.Movie
+import io.android.momobill.data.dto.MoviesResponse
+import io.android.momobill.domain.entity.Movie
 
 class MoviesResponseMapper : Mapper<MoviesResponse, List<Movie>>() {
     override operator fun invoke(dto: MoviesResponse): List<Movie> {

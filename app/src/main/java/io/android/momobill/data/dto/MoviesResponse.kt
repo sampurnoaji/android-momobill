@@ -1,4 +1,4 @@
-package io.android.momobill.data.model
+package io.android.momobill.data.dto
 
 
 import com.squareup.moshi.Json

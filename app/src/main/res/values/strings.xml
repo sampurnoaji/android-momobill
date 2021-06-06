@@ -6,4 +6,8 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
+    <string name="invalid_username">Username salah</string>
+    <string name="invalid_password">Password salah</string>
+    <string name="empty_username">Username kosong</string>
+    <string name="empty_password">Password kosong</string>
 </resources>

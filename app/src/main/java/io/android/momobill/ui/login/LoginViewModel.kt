@@ -4,21 +4,21 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
-import io.android.momobill.abstraction.UseCase
-import io.android.momobill.domain.model.Movie
-import io.android.momobill.domain.usecase.GetMoviesUseCase
+import io.android.momobill.domain.entity.LoginData
+import io.android.momobill.domain.entity.LoginParams
+import io.android.momobill.domain.usecase.LoginUseCase
 import io.android.momobill.vo.LoadResult
 import kotlinx.coroutines.launch
 
-class LoginViewModel(private val getMoviesUseCase: GetMoviesUseCase) : ViewModel() {
+class LoginViewModel(private val loginUseCase: LoginUseCase) : ViewModel() {
 
-    private val _movies = MutableLiveData<LoadResult<List<Movie>>>()
-    val movies = liveData { emitSource(_movies) }
+    private val _loginData = MutableLiveData<LoadResult<LoginData>>()
+    val loginData = liveData { emitSource(_loginData) }
 
-    fun getMovies() {
-        _movies.value = LoadResult.Loading
+    fun login(params: LoginParams) {
+        _loginData.value = LoadResult.Loading
         viewModelScope.launch {
-            _movies.value = getMoviesUseCase(UseCase.None)
+            _loginData.value = loginUseCase(params)
         }
     }
 }

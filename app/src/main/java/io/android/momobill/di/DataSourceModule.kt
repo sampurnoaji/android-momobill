@@ -1,8 +1,8 @@
 package io.android.momobill.di
 
-import io.android.momobill.data.source.UserRemoteDataSource
+import io.android.momobill.data.source.auth.AuthRemoteDataSource
 import org.koin.dsl.module
 
 val dataSourceModule = module {
-    single { UserRemoteDataSource(service = get()) }
+    single { AuthRemoteDataSource(service = get()) }
 }

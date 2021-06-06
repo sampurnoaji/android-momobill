@@ -1,4 +1,4 @@
-package io.android.momobill.domain.model
+package io.android.momobill.domain.entity
 
 data class Movie(
     val adult: Boolean,

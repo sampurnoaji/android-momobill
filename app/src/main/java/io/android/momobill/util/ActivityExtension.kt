@@ -1,4 +1,4 @@
-package io.android.momobill.utils
+package io.android.momobill.util
 
 import android.app.Activity
 import android.content.Intent

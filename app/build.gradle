@@ -17,8 +17,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField 'String', 'BASE_URL', MOVIEDB_BASE_URL
-        buildConfigField 'String', 'API_KEY', MOVIEDB_API_KEY
+        buildConfigField 'String', 'BASE_URL', DEV_BASE_URL
     }
 
     buildTypes {
