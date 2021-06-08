@@ -19,7 +19,7 @@ fun Activity.showAlertDialog(
         .setTitle(title)
         .setMessage(message)
         .setCancelable(false)
-        .setPositiveButton(positiveButtonText) { dialogInterface: DialogInterface, i: Int ->
+        .setPositiveButton(positiveButtonText) { dialogInterface: DialogInterface, _: Int ->
             dialogInterface.dismiss()
             onPositiveButtonPressed()
         }
@@ -38,11 +38,11 @@ fun Activity.showAlertDialog(
         .setTitle(title)
         .setMessage(message)
         .setCancelable(false)
-        .setPositiveButton(positiveButtonText) { dialogInterface: DialogInterface, i: Int ->
+        .setPositiveButton(positiveButtonText) { dialogInterface: DialogInterface, _: Int ->
             dialogInterface.dismiss()
             onPositiveButtonPressed()
         }
-        .setNegativeButton(negativeButtonText) { dialogInterface: DialogInterface, i: Int ->
+        .setNegativeButton(negativeButtonText) { dialogInterface: DialogInterface, _: Int ->
             dialogInterface.dismiss()
             onNegativeButtonPressed()
         }

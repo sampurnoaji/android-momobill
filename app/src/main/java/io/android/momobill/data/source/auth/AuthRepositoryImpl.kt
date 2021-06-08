@@ -2,11 +2,13 @@ package io.android.momobill.data.source.auth
 
 import io.android.momobill.data.dispatcher.DispatcherProvider
 import io.android.momobill.data.mapper.LoginResponseMapper
+import io.android.momobill.data.mapper.UserInfoResponseMapper
 import io.android.momobill.data.params.LoginParams
 import io.android.momobill.data.params.RegisterParams
 import io.android.momobill.data.request.LoginRequest
 import io.android.momobill.data.request.RegisterRequest
 import io.android.momobill.domain.entity.LoginData
+import io.android.momobill.domain.entity.UserInfo
 import io.android.momobill.domain.repository.AuthRepository
 import io.android.momobill.util.extension.mapApiResultToDomain
 import io.android.momobill.util.extension.mapApiResultToSuccessOrFailure
@@ -16,7 +18,8 @@ class AuthRepositoryImpl(
     private val remoteDataSource: AuthRemoteDataSource,
     private val localDataSource: AuthLocalDataSource,
     private val dispatcher: DispatcherProvider,
-    private val loginResponseMapper: LoginResponseMapper
+    private val loginResponseMapper: LoginResponseMapper,
+    private val userInfoResponseMapper: UserInfoResponseMapper
 ) : AuthRepository {
 
     override suspend fun login(params: LoginParams): LoadResult<LoginData> {
@@ -36,11 +39,16 @@ class AuthRepositoryImpl(
         return apiResult.mapApiResultToSuccessOrFailure()
     }
 
-    override fun saveUserData(username: String) {
-        localDataSource.saveUserData(username)
+    override suspend fun getUserInfo(): LoadResult<UserInfo> {
+        val apiResult = remoteDataSource.getUserInfo(dispatcher.io)
+        return apiResult.mapApiResultToDomain(userInfoResponseMapper)
     }
 
-    override fun getUsername(): String {
-        return localDataSource.getUsername()
+    override fun saveUserInfo(userInfo: UserInfo) {
+        localDataSource.saveUserInfo(userInfo)
+    }
+
+    override fun isUserLoggedIn(): Boolean {
+        return localDataSource.isUserLoggedIn()
     }
 }

@@ -2,6 +2,7 @@ package io.android.momobill.data.source.auth
 
 import io.android.momobill.data.dto.BaseResponse
 import io.android.momobill.data.dto.auth.LoginResponse
+import io.android.momobill.data.dto.auth.UserInfoResponse
 import io.android.momobill.data.request.LoginRequest
 import io.android.momobill.data.request.RegisterRequest
 import io.android.momobill.data.service.AuthService
@@ -23,5 +24,9 @@ class AuthRemoteDataSource(private val service: AuthService) : RemoteDataSource(
         request: RegisterRequest
     ): LoadResult<BaseResponse> {
         return call(dispatcher) { service.register(request) }
+    }
+
+    suspend fun getUserInfo(dispatcher: CoroutineDispatcher): LoadResult<UserInfoResponse> {
+        return call(dispatcher) { service.getUserInfo() }
     }
 }

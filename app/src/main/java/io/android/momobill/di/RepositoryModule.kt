@@ -14,7 +14,8 @@ val repositoryModule = module {
             remoteDataSource = get(),
             localDataSource = get(),
             dispatcher = get(),
-            loginResponseMapper = get()
+            loginResponseMapper = get(),
+            userInfoResponseMapper = get()
         )
     }
 }

@@ -1,17 +1,23 @@
 package io.android.momobill.data.source.auth
 
 import android.content.SharedPreferences
+import io.android.momobill.domain.entity.UserInfo
 import io.android.momobill.util.SharedPreferenceConstant
 
 class AuthLocalDataSource(private val sharedPreferences: SharedPreferences) {
 
-    fun saveUserData(username: String) {
+    fun saveUserInfo(userInfo: UserInfo) {
         sharedPreferences.edit()
-            .putString(SharedPreferenceConstant.KEY_USERNAME, username)
+            .putString(SharedPreferenceConstant.KEY_USER_ID, userInfo.userId)
+            .putString(SharedPreferenceConstant.KEY_USERNAME, userInfo.username)
+            .putString(SharedPreferenceConstant.KEY_FULLNAME, userInfo.fullName)
+            .putString(SharedPreferenceConstant.KEY_PHONE, userInfo.phone)
+            .putString(SharedPreferenceConstant.KEY_EMAIL, userInfo.email)
             .apply()
     }
 
-    fun getUsername(): String {
-        return sharedPreferences.getString(SharedPreferenceConstant.KEY_USERNAME, "") ?: ""
+    fun isUserLoggedIn(): Boolean {
+        val userId = sharedPreferences.getString(SharedPreferenceConstant.KEY_USER_ID, "")
+        return !userId.isNullOrEmpty()
     }
 }
