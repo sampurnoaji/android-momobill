@@ -20,4 +20,14 @@ class AuthLocalDataSource(private val sharedPreferences: SharedPreferences) {
         val userId = sharedPreferences.getString(SharedPreferenceConstant.KEY_USER_ID, "")
         return !userId.isNullOrEmpty()
     }
+
+    fun clearUserInfo() {
+        sharedPreferences.edit()
+            .putString(SharedPreferenceConstant.KEY_USER_ID, "")
+            .putString(SharedPreferenceConstant.KEY_USERNAME, "")
+            .putString(SharedPreferenceConstant.KEY_FULLNAME, "")
+            .putString(SharedPreferenceConstant.KEY_PHONE, "")
+            .putString(SharedPreferenceConstant.KEY_EMAIL, "")
+            .apply()
+    }
 }

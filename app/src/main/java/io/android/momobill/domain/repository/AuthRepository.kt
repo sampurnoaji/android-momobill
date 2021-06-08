@@ -13,4 +13,5 @@ interface AuthRepository {
 
     fun saveUserInfo(userInfo: UserInfo)
     fun isUserLoggedIn(): Boolean
+    fun clearUserInfo()
 }

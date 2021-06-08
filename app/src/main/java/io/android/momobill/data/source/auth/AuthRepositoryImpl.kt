@@ -51,4 +51,8 @@ class AuthRepositoryImpl(
     override fun isUserLoggedIn(): Boolean {
         return localDataSource.isUserLoggedIn()
     }
+
+    override fun clearUserInfo() {
+        localDataSource.clearUserInfo()
+    }
 }

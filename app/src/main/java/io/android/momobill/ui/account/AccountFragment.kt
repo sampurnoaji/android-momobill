@@ -5,8 +5,10 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import io.android.momobill.R
 import io.android.momobill.databinding.FragmentAccountBinding
+import io.android.momobill.ui.login.LoginActivity
 import io.android.momobill.util.delegate.viewBinding
 import io.android.momobill.util.extension.gone
+import io.android.momobill.util.extension.start
 import io.android.momobill.util.extension.visible
 import io.android.momobill.vo.LoadResult
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -23,7 +25,9 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
         vm.getUserInfo()
 
         binding.btnLogout.setOnClickListener {
-
+            vm.logout()
+            start<LoginActivity>()
+            requireActivity().finish()
         }
     }
 
