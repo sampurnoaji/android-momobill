@@ -82,6 +82,7 @@ dependencies {
 
     //security
     implementation("androidx.security:security-crypto:$security")
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
