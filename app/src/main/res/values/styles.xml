@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <style name="Momobill.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemIconTint">@color/bottom_navigation_view</item>
+        <item name="itemTextColor">@color/bottom_navigation_view</item>
+        <item name="backgroundTint">@color/primaryColor</item>
+        <item name="labelVisibilityMode">selected</item>
+    </style>
+
+    <style name="Momobill.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textStyle">bold</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="backgroundTint">@color/button</item>
+        <item name="android:textColor">@color/secondaryTextColor</item>
+    </style>
+
+    <style name="Momobill.Button.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textStyle">bold</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="contentPadding">8dp</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="rippleColor">@color/secondaryColor</item>
+        <item name="strokeColor">@color/secondaryColor</item>
+        <item name="android:textColor">@color/secondaryColor</item>
+    </style>
+
+    <style name="Momobill.ProgressBar" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:visibility">gone</item>
+        <item name="android:indeterminateTint">@color/purple_a200</item>
+    </style>
+</resources>

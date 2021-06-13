@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorPrimary"
     tools:context=".ui.splash.SplashActivity">
 
     <ImageView
@@ -13,6 +12,6 @@
         android:layout_gravity="center"
         android:contentDescription="@string/app_name"
         android:src="@drawable/ic_baseline_adjust_24"
-        app:tint="@color/white" />
+        app:tint="?attr/colorPrimary" />
 
 </FrameLayout>
