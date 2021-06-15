@@ -27,4 +27,7 @@
     <string name="home">Home</string>
     <string name="account">Account</string>
     <string name="logout">Logout</string>
+    <string name="my_vehicle">Kendaraanku</string>
+    <string name="car">Mobil</string>
+    <string name="motorcycle">Motor</string>
 </resources>

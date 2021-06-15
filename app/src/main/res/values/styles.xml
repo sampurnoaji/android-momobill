@@ -33,4 +33,9 @@
         <item name="android:visibility">gone</item>
         <item name="android:indeterminateTint">@color/purple_a200</item>
     </style>
+
+    <style name="Momobill.Image.Rounded" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

@@ -24,6 +24,10 @@
 
     <color name="purple_a200">#E040FB</color>
 
+    <color name="amber_900">#FF6F00</color>
+
     <color name="grey_300">#E0E0E0</color>
     <color name="grey_500">#A0A0A0</color>
+
+    <color name="light_green_a700">#64DD17</color>
 </resources>
