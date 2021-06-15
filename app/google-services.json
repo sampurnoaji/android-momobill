@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "686769644962",
+    "project_id": "momobill-c67ab",
+    "storage_bucket": "momobill-c67ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:686769644962:android:476c75e06e4a9d0abefefb",
+        "android_client_info": {
+          "package_name": "io.android.momobill"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "686769644962-o97ibulp3ccatlhj9dg4p6cehunshsl5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnoC0T9qXcM2fCaJnUoWcLfJ42Uj9IxvE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "686769644962-o97ibulp3ccatlhj9dg4p6cehunshsl5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
