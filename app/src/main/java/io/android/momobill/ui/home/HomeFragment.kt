@@ -7,7 +7,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.android.momobill.R
 import io.android.momobill.databinding.FragmentHomeBinding
+import io.android.momobill.domain.entity.vehicle.Vehicle
+import io.android.momobill.ui.vehicle.detail.VehicleDetailActivity
 import io.android.momobill.util.delegate.viewBinding
+import io.android.momobill.util.extension.start
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -40,7 +43,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun setupVehiclesRecyclerView() {
         val vehicles = vm.populateDummyVehicles()
-        val vehicleListAdapter = VehicleListAdapter(vehicles)
+        val callback = object : VehicleListAdapter.VehicleListCallback {
+            override fun onVehicleClicked(vehicle: Vehicle) {
+                start<VehicleDetailActivity>()
+            }
+        }
+        val vehicleListAdapter = VehicleListAdapter(vehicles, callback)
         with(binding.rvVehicles) {
             layoutManager = LinearLayoutManager(requireActivity())
             adapter = vehicleListAdapter

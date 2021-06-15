@@ -7,15 +7,17 @@ import io.android.momobill.R
 import io.android.momobill.databinding.ItemListVehicleBinding
 import io.android.momobill.domain.entity.vehicle.Vehicle
 
-class VehicleListAdapter(private val vehicles: List<Vehicle>) :
-    RecyclerView.Adapter<VehicleListAdapter.ContentViewHolder>() {
+class VehicleListAdapter(
+    private val vehicles: List<Vehicle>,
+    private val callback: VehicleListCallback
+) : RecyclerView.Adapter<VehicleListAdapter.ContentViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContentViewHolder {
         return ContentViewHolder.create(parent)
     }
 
     override fun onBindViewHolder(holder: ContentViewHolder, position: Int) {
-        holder.bind(vehicles[position])
+        holder.bind(vehicles[position], callback)
     }
 
     override fun getItemCount(): Int {
@@ -33,10 +35,16 @@ class VehicleListAdapter(private val vehicles: List<Vehicle>) :
             }
         }
 
-        fun bind(vehicle: Vehicle) {
+        fun bind(vehicle: Vehicle, callback: VehicleListCallback) {
             binding.tvCar.text = vehicle.name
             binding.imgCar.setImageResource(R.color.secondaryColor)
             binding.imgCarLogo.setImageResource(R.drawable.ic_bmw_logo)
+
+            binding.container.setOnClickListener { callback.onVehicleClicked(vehicle) }
         }
+    }
+
+    interface VehicleListCallback {
+        fun onVehicleClicked(vehicle: Vehicle)
     }
 }
