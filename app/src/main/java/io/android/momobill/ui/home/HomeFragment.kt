@@ -52,6 +52,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         with(binding.rvVehicles) {
             layoutManager = LinearLayoutManager(requireActivity())
             adapter = vehicleListAdapter
+            isFocusable = false
         }
     }
 }
