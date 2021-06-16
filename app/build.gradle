@@ -41,8 +41,8 @@ android {
             buildConfigField 'String', 'BASE_URL', DEV_BASE_URL
             firebaseAppDistribution {
                 appId = "1:686769644962:android:0f4a1d28dff5c7d2befefb"
-                releaseNotes="Release notes for demo version"
-                testers="man.sanji23@gmail.com"
+                releaseNotesFile="./app/release-notes.txt"
+                groups="io-dev"
             }
         }
         prod {
@@ -51,8 +51,8 @@ android {
             buildConfigField 'String', 'BASE_URL', BASE_URL
             firebaseAppDistribution {
                 appId = "1:686769644962:android:476c75e06e4a9d0abefefb"
-                releaseNotes="Release notes for full version"
-                testers="man.sanji23@gmail.com"
+                releaseNotesFile="./app/release-notes.txt"
+                groups="io-dev"
             }
         }
     }
