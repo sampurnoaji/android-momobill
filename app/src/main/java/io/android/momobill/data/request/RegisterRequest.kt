@@ -1,6 +1,5 @@
 package io.android.momobill.data.request
 
-
 import com.squareup.moshi.Json
 
 data class RegisterRequest(

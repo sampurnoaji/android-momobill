@@ -27,9 +27,11 @@ class MockNetworkInterceptor(private val context: Context) : Interceptor {
                 .protocol(Protocol.HTTP_1_1)
                 .message("")
                 .code(200)
-                .body(context.readFileFromAssets("mocks/$fileName.json").toResponseBody(
-                    JSON_MEDIA_TYPE
-                ))
+                .body(
+                    context.readFileFromAssets("mocks/$fileName.json").toResponseBody(
+                        JSON_MEDIA_TYPE
+                    )
+                )
                 .build()
         }
 

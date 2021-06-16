@@ -1,6 +1,5 @@
 package io.android.momobill.data.dto.auth
 
-
 import com.squareup.moshi.Json
 
 data class LoginResponse(

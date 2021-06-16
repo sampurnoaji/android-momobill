@@ -27,6 +27,7 @@
             android:id="@+id/imgIcon"
             android:layout_width="48dp"
             android:layout_height="48dp"
+            android:contentDescription="@string/car"
             app:tint="@color/primaryTextColor"
             tools:src="@drawable/ic_steering_wheel_svgrepo_com" />
     </androidx.cardview.widget.CardView>

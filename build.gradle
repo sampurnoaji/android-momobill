@@ -1,15 +1,23 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = "1.4.31"
+    ext {
+        build_gradle = "4.2.0"
+        kotlin_version = "1.4.31"
+        google_service = "4.3.8"
+        firebase_app_distribution = "2.1.2"
+        ktlint = "10.1.0"
+    }
     repositories {
         google()
         mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.2.0"
+        classpath "com.android.tools.build:gradle:$build_gradle"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.google.gms:google-services:4.3.8'
-        classpath 'com.google.firebase:firebase-appdistribution-gradle:2.1.2'
+        classpath "com.google.gms:google-services:$google_service"
+        classpath "com.google.firebase:firebase-appdistribution-gradle:$firebase_app_distribution"
+        classpath "org.jlleitschuh.gradle:ktlint-gradle:$ktlint"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
