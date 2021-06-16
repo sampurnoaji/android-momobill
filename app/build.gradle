@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'com.google.gms.google-services'
+    id 'com.google.firebase.appdistribution'
 }
 
 android {
@@ -17,16 +18,45 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-        buildConfigField 'String', 'BASE_URL', DEV_BASE_URL
     }
 
     buildTypes {
+        debug {
+            debuggable true
+        }
         release {
+            debuggable false
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "version"
+    productFlavors {
+        dev {
+            dimension "version"
+            applicationIdSuffix ".dev"
+            versionNameSuffix "-dev"
+            resValue "string", "app_name", "Momobill-dev"
+            buildConfigField 'String', 'BASE_URL', DEV_BASE_URL
+            firebaseAppDistribution {
+                appId = "1:686769644962:android:0f4a1d28dff5c7d2befefb"
+                releaseNotes="Release notes for demo version"
+                testers="man.sanji23@gmail.com"
+            }
+        }
+        prod {
+            dimension "version"
+            resValue "string", "app_name", "Momobill"
+            buildConfigField 'String', 'BASE_URL', BASE_URL
+            firebaseAppDistribution {
+                appId = "1:686769644962:android:476c75e06e4a9d0abefefb"
+                releaseNotes="Release notes for full version"
+                testers="man.sanji23@gmail.com"
+            }
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
