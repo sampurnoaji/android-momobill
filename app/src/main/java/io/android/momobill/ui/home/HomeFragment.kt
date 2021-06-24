@@ -10,7 +10,10 @@ import io.android.momobill.databinding.FragmentHomeBinding
 import io.android.momobill.domain.entity.vehicle.Vehicle
 import io.android.momobill.ui.vehicle.detail.VehicleDetailActivity
 import io.android.momobill.util.delegate.viewBinding
+import io.android.momobill.util.extension.gone
 import io.android.momobill.util.extension.start
+import io.android.momobill.util.extension.visible
+import io.android.momobill.vo.ViewState
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
@@ -18,14 +21,37 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private val binding by viewBinding(FragmentHomeBinding::bind)
     private val vm by viewModel<HomeViewModel>()
 
+    private val vehicleListAdapter by lazy { VehicleListAdapter(emptyList(), vehicleListCallback) }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupContentDashboard()
+        setupDashboardContent()
         setupVehiclesRecyclerView()
+
+        observeVehiclesResult()
+        vm.getVehicles()
     }
 
-    private fun setupContentDashboard() {
+    private fun observeVehiclesResult() {
+        vm.vehicles.observe(viewLifecycleOwner) {
+            when (it) {
+                is ViewState.Loading -> {
+                    binding.pgbVehicles.visible()
+                }
+                is ViewState.Success -> {
+                    binding.pgbVehicles.gone()
+                    vehicleListAdapter.refreshData(it.data)
+                }
+                is ViewState.Error -> {
+                    binding.pgbVehicles.gone()
+                    // todo: handle all API error
+                }
+            }
+        }
+    }
+
+    private fun setupDashboardContent() {
         with(binding.contentCar) {
             cardIcon.setCardBackgroundColor(ContextCompat.getColor(requireContext(), R.color.amber_900))
             imgIcon.setImageResource(R.drawable.ic_steering_wheel_svgrepo_com)
@@ -42,17 +68,16 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     }
 
     private fun setupVehiclesRecyclerView() {
-        val vehicles = vm.populateDummyVehicles()
-        val callback = object : VehicleListAdapter.VehicleListCallback {
-            override fun onVehicleClicked(vehicle: Vehicle) {
-                start<VehicleDetailActivity>()
-            }
-        }
-        val vehicleListAdapter = VehicleListAdapter(vehicles, callback)
         with(binding.rvVehicles) {
             layoutManager = LinearLayoutManager(requireActivity())
             adapter = vehicleListAdapter
             isFocusable = false
+        }
+    }
+
+    private val vehicleListCallback = object : VehicleListAdapter.VehicleListCallback {
+        override fun onVehicleClicked(vehicle: Vehicle) {
+            start<VehicleDetailActivity>()
         }
     }
 }

@@ -1,7 +1,7 @@
 package io.android.momobill.data.source.auth
 
 import android.content.SharedPreferences
-import io.android.momobill.domain.entity.UserInfo
+import io.android.momobill.domain.entity.auth.UserInfo
 import io.android.momobill.util.SharedPreferenceConstant
 
 class AuthLocalDataSource(private val sharedPreferences: SharedPreferences) {

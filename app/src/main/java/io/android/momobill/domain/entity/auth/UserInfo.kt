@@ -1,4 +1,4 @@
-package io.android.momobill.domain.entity
+package io.android.momobill.domain.entity.auth
 
 data class UserInfo(
     val email: String,

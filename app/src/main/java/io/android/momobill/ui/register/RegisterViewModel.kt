@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import io.android.momobill.data.params.RegisterParams
-import io.android.momobill.domain.usecase.RegisterUseCase
+import io.android.momobill.domain.usecase.auth.RegisterUseCase
 import io.android.momobill.vo.LoadResult
 import kotlinx.coroutines.launch
 

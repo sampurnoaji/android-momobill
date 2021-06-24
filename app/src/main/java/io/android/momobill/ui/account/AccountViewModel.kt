@@ -5,9 +5,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import io.android.momobill.abstraction.UseCase
-import io.android.momobill.domain.entity.UserInfo
-import io.android.momobill.domain.usecase.GetUserInfoUseCase
-import io.android.momobill.domain.usecase.LogoutUseCase
+import io.android.momobill.domain.entity.auth.UserInfo
+import io.android.momobill.domain.usecase.auth.GetUserInfoUseCase
+import io.android.momobill.domain.usecase.auth.LogoutUseCase
 import io.android.momobill.vo.LoadResult
 import kotlinx.coroutines.launch
 

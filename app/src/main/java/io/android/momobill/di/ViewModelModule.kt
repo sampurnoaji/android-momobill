@@ -12,6 +12,6 @@ val viewModelModule = module {
     viewModel { SplashViewModel(checkUserLoggedInStatusUseCase = get()) }
     viewModel { LoginViewModel(loginUseCase = get()) }
     viewModel { RegisterViewModel(registerUseCase = get()) }
-    viewModel { HomeViewModel() }
+    viewModel { HomeViewModel(getVehiclesUseCase = get()) }
     viewModel { AccountViewModel(getUserInfoUseCase = get(), logoutUseCase = get()) }
 }

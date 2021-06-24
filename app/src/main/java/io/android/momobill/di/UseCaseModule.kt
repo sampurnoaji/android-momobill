@@ -1,10 +1,11 @@
 package io.android.momobill.di
 
-import io.android.momobill.domain.usecase.CheckUserLoggedInStatusUseCase
-import io.android.momobill.domain.usecase.GetUserInfoUseCase
-import io.android.momobill.domain.usecase.LoginUseCase
-import io.android.momobill.domain.usecase.LogoutUseCase
-import io.android.momobill.domain.usecase.RegisterUseCase
+import io.android.momobill.domain.usecase.auth.CheckUserLoggedInStatusUseCase
+import io.android.momobill.domain.usecase.auth.GetUserInfoUseCase
+import io.android.momobill.domain.usecase.auth.LoginUseCase
+import io.android.momobill.domain.usecase.auth.LogoutUseCase
+import io.android.momobill.domain.usecase.auth.RegisterUseCase
+import io.android.momobill.domain.usecase.vehicle.GetVehiclesUseCase
 import org.koin.dsl.module
 
 val useCaseModule = module {
@@ -13,4 +14,5 @@ val useCaseModule = module {
     factory { RegisterUseCase(repository = get()) }
     factory { GetUserInfoUseCase(repository = get()) }
     factory { LogoutUseCase(repository = get()) }
+    factory { GetVehiclesUseCase(repository = get()) }
 }

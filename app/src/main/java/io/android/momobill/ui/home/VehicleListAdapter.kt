@@ -8,7 +8,7 @@ import io.android.momobill.databinding.ItemListVehicleBinding
 import io.android.momobill.domain.entity.vehicle.Vehicle
 
 class VehicleListAdapter(
-    private val vehicles: List<Vehicle>,
+    private var vehicles: List<Vehicle>,
     private val callback: VehicleListCallback
 ) : RecyclerView.Adapter<VehicleListAdapter.ContentViewHolder>() {
 
@@ -22,6 +22,11 @@ class VehicleListAdapter(
 
     override fun getItemCount(): Int {
         return vehicles.size
+    }
+
+    fun refreshData(vehicles: List<Vehicle>) {
+        this.vehicles = vehicles
+        notifyDataSetChanged()
     }
 
     class ContentViewHolder(private val binding: ItemListVehicleBinding) :

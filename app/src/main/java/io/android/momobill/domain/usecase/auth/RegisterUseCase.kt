@@ -1,4 +1,4 @@
-package io.android.momobill.domain.usecase
+package io.android.momobill.domain.usecase.auth
 
 import io.android.momobill.abstraction.UseCase
 import io.android.momobill.data.params.RegisterParams

@@ -1,14 +1,14 @@
 package io.android.momobill.data.source.auth
 
 import io.android.momobill.data.dispatcher.DispatcherProvider
-import io.android.momobill.data.mapper.LoginResponseMapper
-import io.android.momobill.data.mapper.UserInfoResponseMapper
+import io.android.momobill.data.mapper.auth.LoginResponseMapper
+import io.android.momobill.data.mapper.auth.UserInfoResponseMapper
 import io.android.momobill.data.params.LoginParams
 import io.android.momobill.data.params.RegisterParams
 import io.android.momobill.data.request.LoginRequest
 import io.android.momobill.data.request.RegisterRequest
-import io.android.momobill.domain.entity.LoginData
-import io.android.momobill.domain.entity.UserInfo
+import io.android.momobill.domain.entity.auth.LoginData
+import io.android.momobill.domain.entity.auth.UserInfo
 import io.android.momobill.domain.repository.AuthRepository
 import io.android.momobill.util.extension.mapApiResultToDomain
 import io.android.momobill.util.extension.mapApiResultToSuccessOrFailure
