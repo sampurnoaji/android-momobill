@@ -29,4 +29,11 @@
     <string name="my_vehicle">Kendaraanku</string>
     <string name="car">Mobil</string>
     <string name="motorcycle">Motor</string>
+
+    <string name="try_again">Coba lagi</string>
+    <string name="error">Error</string>
+
+    <string name="internet_connection_error">Masalah koneksi internet</string>
+    <string name="server_error">Gangguan server</string>
+    <string name="unknown_error">Terjadi kesalahan</string>
 </resources>

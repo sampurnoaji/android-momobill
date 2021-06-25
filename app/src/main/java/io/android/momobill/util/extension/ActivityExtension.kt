@@ -5,6 +5,9 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.view.View
 import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.FragmentManager
+import io.android.momobill.ui.AlertBottomSheetDialogFragment
+import io.android.momobill.vo.ViewState
 
 inline fun <reified T : Activity> Activity.start() {
     startActivity(Intent(this, T::class.java))
@@ -70,4 +73,14 @@ fun Activity.showAlertDialog(
             onNegativeButtonPressed()
         }
         .show()
+}
+
+fun Activity.showApiError(
+    manager: FragmentManager,
+    error: ViewState.Error,
+    closeScreenOnCancel: Boolean,
+    retryAction: () -> Unit = {}
+) {
+    val alert = AlertBottomSheetDialogFragment.getInstance()
+    alert.setError(error, closeScreenOnCancel, retryAction, manager)
 }

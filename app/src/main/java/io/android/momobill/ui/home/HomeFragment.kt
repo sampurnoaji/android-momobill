@@ -11,6 +11,7 @@ import io.android.momobill.domain.entity.vehicle.Vehicle
 import io.android.momobill.ui.vehicle.detail.VehicleDetailActivity
 import io.android.momobill.util.delegate.viewBinding
 import io.android.momobill.util.extension.gone
+import io.android.momobill.util.extension.showApiError
 import io.android.momobill.util.extension.start
 import io.android.momobill.util.extension.visible
 import io.android.momobill.vo.ViewState
@@ -45,7 +46,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 }
                 is ViewState.Error -> {
                     binding.pgbVehicles.gone()
-                    // todo: handle all API error
+                    showApiError(childFragmentManager, it, false) {
+                        vm.getVehicles()
+                    }
                 }
             }
         }
@@ -53,14 +56,24 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun setupDashboardContent() {
         with(binding.contentCar) {
-            cardIcon.setCardBackgroundColor(ContextCompat.getColor(requireContext(), R.color.amber_900))
+            cardIcon.setCardBackgroundColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.amber_900
+                )
+            )
             imgIcon.setImageResource(R.drawable.ic_steering_wheel_svgrepo_com)
             tvTitle.text = getString(R.string.car)
             tvSubtitle.text = "15"
         }
 
         with(binding.contentMotorcycle) {
-            cardIcon.setCardBackgroundColor(ContextCompat.getColor(requireContext(), R.color.light_green_a700))
+            cardIcon.setCardBackgroundColor(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.light_green_a700
+                )
+            )
             imgIcon.setImageResource(R.drawable.ic_baseline_sports_motorsports_24)
             tvTitle.text = getString(R.string.motorcycle)
             tvSubtitle.text = "212"
