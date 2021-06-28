@@ -32,6 +32,11 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         observeVehiclesResult()
         vm.getVehicles()
+
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            vm.getVehicles()
+
+        }
     }
 
     private fun observeVehiclesResult() {
@@ -41,10 +46,12 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                     binding.pgbVehicles.visible()
                 }
                 is ViewState.Success -> {
+                    binding.swipeRefreshLayout.isRefreshing = false
                     binding.pgbVehicles.gone()
                     vehicleListAdapter.refreshData(it.data)
                 }
                 is ViewState.Error -> {
+                    binding.swipeRefreshLayout.isRefreshing = false
                     binding.pgbVehicles.gone()
                     showApiError(childFragmentManager, it, false) {
                         vm.getVehicles()

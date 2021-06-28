@@ -89,10 +89,8 @@ class AlertBottomSheetDialogFragment : BottomSheetDialogFragment() {
         this.closeScreenOnCancel = closeScreenOnCancel
         this.retryAction = retryAction
 
-        if (!isAdded && fragmentManager.findFragmentByTag(javaClass.simpleName) == null) {
-            show(fragmentManager, javaClass.simpleName)
-            fragmentManager.executePendingTransactions()
-        }
+        show(fragmentManager, javaClass.simpleName)
+        fragmentManager.executePendingTransactions()
     }
 
     companion object {
