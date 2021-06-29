@@ -7,7 +7,7 @@
     tools:context=".ui.vehicle.detail.VehicleDetailActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/actionBar"
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
         app:layout_constraintTop_toTopOf="parent">
@@ -21,4 +21,128 @@
             app:title="Detail"
             app:titleTextColor="?attr/colorOnPrimary" />
     </com.google.android.material.appbar.AppBarLayout>
+
+    <ImageView
+        android:id="@+id/imgVehicle"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:contentDescription="@string/my_vehicle"
+        app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+        tools:src="@color/grey_300" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardElevation="16dp"
+        app:contentPadding="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/imgVehicle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgVehicle"
+        tools:backgroundTint="@color/secondaryColor">
+
+        <ImageView
+            android:id="@+id/imgIcon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription="@string/car"
+            app:tint="@color/primaryTextColor"
+            tools:src="@drawable/ic_steering_wheel_svgrepo_com" />
+    </androidx.cardview.widget.CardView>
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:stretchColumns="*"
+        app:layout_constraintTop_toBottomOf="@+id/cardIcon">
+
+        <TableRow>
+
+            <TextView
+                android:padding="3dip"
+                android:text="Merk" />
+
+            <TextView
+                android:id="@+id/tvBrand"
+                android:layout_width="197dp"
+                android:layout_height="match_parent"
+                android:padding="3dip"
+                android:text="Toyota" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:padding="3dip"
+                android:text="Jenis" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:padding="3dip"
+                android:text="Kijang Innova E XS41 DS" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:padding="3dip"
+                android:text="Model" />
+
+            <TextView
+                android:id="@+id/tvModel"
+                android:padding="3dip"
+                android:text="Mobil Penumpang" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:padding="3dip"
+                android:text="Tahun" />
+
+            <TextView
+                android:id="@+id/tvYear"
+                android:padding="3dip"
+                android:text="2009" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:padding="3dip"
+                android:text="CC" />
+
+            <TextView
+                android:id="@+id/tvCc"
+                android:padding="3dip"
+                android:text="2494" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:padding="3dip"
+                android:text="Warna" />
+
+            <TextView
+                android:id="@+id/tvColor"
+                android:padding="3dip"
+                android:text="Hitam Metalik" />
+        </TableRow>
+    </TableLayout>
+
+    <ProgressBar
+        android:id="@+id/pgbVehicleDetail"
+        style="@style/Momobill.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

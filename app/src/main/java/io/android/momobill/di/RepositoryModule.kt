@@ -15,7 +15,6 @@ val repositoryModule = module {
         AuthRepositoryImpl(
             remoteDataSource = get(),
             localDataSource = get(),
-            dispatcher = get(),
             loginResponseMapper = get(),
             userInfoResponseMapper = get()
         )
@@ -24,7 +23,8 @@ val repositoryModule = module {
     single<VehicleRepository> {
         VehicleRepositoryImpl(
             remoteDataSource = get(),
-            vehicleResponseMapper = get()
+            vehicleResponseMapper = get(),
+            vehicleDetailResponseMapper = get()
         )
     }
 }

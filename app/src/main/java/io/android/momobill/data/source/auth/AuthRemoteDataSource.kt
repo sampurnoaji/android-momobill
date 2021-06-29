@@ -6,27 +6,30 @@ import io.android.momobill.data.dto.auth.UserInfoResponse
 import io.android.momobill.data.request.LoginRequest
 import io.android.momobill.data.request.RegisterRequest
 import io.android.momobill.data.service.AuthService
-import io.android.momobill.data.source.RemoteDataSource
-import io.android.momobill.vo.LoadResult
-import kotlinx.coroutines.CoroutineDispatcher
+import io.android.momobill.data.util.ApiClient
+import io.android.momobill.vo.ApiResponse
+import io.android.momobill.vo.Either
 
-class AuthRemoteDataSource(private val service: AuthService) : RemoteDataSource() {
+class AuthRemoteDataSource(private val service: AuthService) : ApiClient() {
 
-    suspend fun login(
-        dispatcher: CoroutineDispatcher,
-        request: LoginRequest
-    ): LoadResult<LoginResponse> {
-        return call(dispatcher) { service.login(request) }
+    suspend fun login(request: LoginRequest): Either<Exception, LoginResponse> {
+        return when (val response = call { service.login(request) }) {
+            is ApiResponse.Success -> Either.Success(response.data)
+            is ApiResponse.Failure -> Either.Failure(response.cause)
+        }
     }
 
-    suspend fun register(
-        dispatcher: CoroutineDispatcher,
-        request: RegisterRequest
-    ): LoadResult<BaseResponse> {
-        return call(dispatcher) { service.register(request) }
+    suspend fun register(request: RegisterRequest): Either<Exception, BaseResponse> {
+        return when (val response = call { service.register(request) }) {
+            is ApiResponse.Success -> Either.Success(response.data)
+            is ApiResponse.Failure -> Either.Failure(response.cause)
+        }
     }
 
-    suspend fun getUserInfo(dispatcher: CoroutineDispatcher): LoadResult<UserInfoResponse> {
-        return call(dispatcher) { service.getUserInfo() }
+    suspend fun getUserInfo(): Either<Exception, UserInfoResponse> {
+        return when (val response = call { service.getUserInfo() }) {
+            is ApiResponse.Success -> Either.Success(response.data)
+            is ApiResponse.Failure -> Either.Failure(response.cause)
+        }
     }
 }

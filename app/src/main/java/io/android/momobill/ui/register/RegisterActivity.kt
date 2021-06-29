@@ -14,7 +14,7 @@ import io.android.momobill.util.extension.isValidEmail
 import io.android.momobill.util.extension.isValidPhone
 import io.android.momobill.util.extension.showAlertDialog
 import io.android.momobill.util.extension.visible
-import io.android.momobill.vo.LoadResult
+import io.android.momobill.vo.ViewState
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RegisterActivity : AppCompatActivity() {
@@ -38,20 +38,18 @@ class RegisterActivity : AppCompatActivity() {
     private fun observeRegisterResult() {
         vm.registerResult.observe(this) {
             when (it) {
-                is LoadResult.Loading -> {
+                is ViewState.Loading -> {
                     binding.pgbRegister.visible()
                     binding.btnRegister.disable()
                 }
-                is LoadResult.Success -> {
+                is ViewState.Success -> {
                     showAlertDialog(
                         "",
                         getString(R.string.register_successful),
                         getString(R.string.close)
-                    ) {
-                        finish()
-                    }
+                    ) { finish() }
                 }
-                is LoadResult.Error -> {
+                is ViewState.Error -> {
                     binding.pgbRegister.gone()
                     binding.btnRegister.enable()
                     showAlertDialog(
@@ -59,8 +57,6 @@ class RegisterActivity : AppCompatActivity() {
                         getString(R.string.register_failed),
                         getString(R.string.close)
                     )
-                }
-                else -> {
                 }
             }
         }

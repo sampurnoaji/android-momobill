@@ -1,7 +1,9 @@
 package io.android.momobill.abstraction
 
-abstract class UseCase<Params, out T> {
-    abstract suspend operator fun invoke(params: Params): T
+import io.android.momobill.vo.Either
+
+abstract class UseCase<Params, T> {
+    abstract suspend operator fun invoke(params: Params): Either<Exception, T>
 
     object None
 }

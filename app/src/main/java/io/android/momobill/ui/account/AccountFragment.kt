@@ -10,7 +10,7 @@ import io.android.momobill.util.delegate.viewBinding
 import io.android.momobill.util.extension.gone
 import io.android.momobill.util.extension.start
 import io.android.momobill.util.extension.visible
-import io.android.momobill.vo.LoadResult
+import io.android.momobill.vo.ViewState
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AccountFragment : Fragment(R.layout.fragment_account) {
@@ -34,19 +34,17 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
     private fun observeUserInfoResult() {
         vm.userInfo.observe(viewLifecycleOwner) {
             when (it) {
-                is LoadResult.Loading -> {
+                is ViewState.Loading -> {
                     binding.pgbLoading.visible()
                 }
-                is LoadResult.Success -> {
+                is ViewState.Success -> {
                     binding.pgbLoading.gone()
                     binding.tvName.text = it.data.fullName
                     binding.tvPhone.text = it.data.phone
                     binding.tvEmail.text = it.data.email
                 }
-                is LoadResult.Error -> {
+                is ViewState.Error -> {
                     binding.pgbLoading.gone()
-                }
-                else -> {
                 }
             }
         }

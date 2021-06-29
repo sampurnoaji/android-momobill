@@ -4,11 +4,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
-import io.android.momobill.abstraction.UseCase
 import io.android.momobill.domain.entity.auth.UserInfo
 import io.android.momobill.domain.usecase.auth.GetUserInfoUseCase
 import io.android.momobill.domain.usecase.auth.LogoutUseCase
-import io.android.momobill.vo.LoadResult
+import io.android.momobill.util.extension.onError
+import io.android.momobill.util.extension.onSuccess
+import io.android.momobill.vo.ViewState
 import kotlinx.coroutines.launch
 
 class AccountViewModel(
@@ -16,13 +17,15 @@ class AccountViewModel(
     private val logoutUseCase: LogoutUseCase
 ) : ViewModel() {
 
-    private val _userInfo = MutableLiveData<LoadResult<UserInfo>>()
+    private val _userInfo = MutableLiveData<ViewState<UserInfo>>()
     val userInfo = liveData { emitSource(_userInfo) }
 
     fun getUserInfo() {
-        _userInfo.value = LoadResult.Loading
+        _userInfo.value = ViewState.Loading
         viewModelScope.launch {
-            _userInfo.value = getUserInfoUseCase(UseCase.None)
+            getUserInfoUseCase()
+                .onSuccess { _userInfo.value = ViewState.Success(it) }
+                .onError { _userInfo.value = ViewState.Error(it) }
         }
     }
 

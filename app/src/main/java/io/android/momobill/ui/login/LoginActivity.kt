@@ -14,7 +14,7 @@ import io.android.momobill.util.extension.enable
 import io.android.momobill.util.extension.gone
 import io.android.momobill.util.extension.start
 import io.android.momobill.util.extension.visible
-import io.android.momobill.vo.LoadResult
+import io.android.momobill.vo.ViewState
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : AppCompatActivity() {
@@ -41,19 +41,18 @@ class LoginActivity : AppCompatActivity() {
     private fun observeLoginResult() {
         vm.loginData.observe(this) {
             when (it) {
-                is LoadResult.Loading -> {
+                is ViewState.Loading -> {
                     binding.pgbLogin.visible()
                     binding.btnLogin.disable()
                 }
-                is LoadResult.Success -> {
+                is ViewState.Success -> {
                     start<MainActivity>()
                     finish()
                 }
-                is LoadResult.Error -> {
+                is ViewState.Error -> {
                     binding.pgbLogin.gone()
                     binding.btnLogin.enable()
                 }
-                else -> {}
             }
         }
     }

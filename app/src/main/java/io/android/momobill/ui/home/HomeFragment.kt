@@ -12,7 +12,6 @@ import io.android.momobill.ui.vehicle.detail.VehicleDetailActivity
 import io.android.momobill.util.delegate.viewBinding
 import io.android.momobill.util.extension.gone
 import io.android.momobill.util.extension.showApiError
-import io.android.momobill.util.extension.start
 import io.android.momobill.util.extension.visible
 import io.android.momobill.vo.ViewState
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -35,7 +34,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         binding.swipeRefreshLayout.setOnRefreshListener {
             vm.getVehicles()
-
         }
     }
 
@@ -97,7 +95,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private val vehicleListCallback = object : VehicleListAdapter.VehicleListCallback {
         override fun onVehicleClicked(vehicle: Vehicle) {
-            start<VehicleDetailActivity>()
+            VehicleDetailActivity.start(requireActivity(), vehicle.id)
         }
     }
 }
