@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import coil.load
 import io.android.momobill.R
 import io.android.momobill.databinding.ActivityVehicleDetailBinding
 import io.android.momobill.domain.entity.vehicle.VehicleDetail
@@ -65,7 +66,7 @@ class VehicleDetailActivity : AppCompatActivity() {
     }
 
     private fun showVehicleDetail(vehicleDetail: VehicleDetail) {
-        binding.imgVehicle.setImageResource(R.color.grey_300)
+        binding.imgVehicle.load("http://mypertamina20-minio-dev-mypertamina20-dev.vsan-apps.playcourt.id/microsite-banner/564048e9-e004-4c82-ad27-7e15682a52f9.jpeg")
         binding.cardIcon.setCardBackgroundColor(ContextCompat.getColor(this, R.color.amber_900))
         binding.imgIcon.setImageResource(R.drawable.ic_steering_wheel_svgrepo_com)
 

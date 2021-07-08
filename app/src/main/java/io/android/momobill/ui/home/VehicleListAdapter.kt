@@ -3,6 +3,7 @@ package io.android.momobill.ui.home
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import io.android.momobill.R
 import io.android.momobill.databinding.ItemListVehicleBinding
 import io.android.momobill.domain.entity.vehicle.Vehicle
@@ -42,7 +43,7 @@ class VehicleListAdapter(
 
         fun bind(vehicle: Vehicle, callback: VehicleListCallback) {
             binding.tvCar.text = vehicle.name
-            binding.imgCar.setImageResource(R.color.secondaryColor)
+            binding.imgCar.load(vehicle.imageUrl)
             binding.imgCarLogo.setImageResource(R.drawable.ic_bmw_logo)
 
             binding.container.setOnClickListener { callback.onVehicleClicked(vehicle) }
