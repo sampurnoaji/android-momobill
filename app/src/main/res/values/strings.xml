@@ -20,9 +20,6 @@
     <string name="register_successful">Register berhasil</string>
     <string name="register_failed">Register gagal</string>
 
-    <string name="title_activity_splash">FullscreenActivity</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="home">Home</string>
     <string name="account">Account</string>
     <string name="logout">Logout</string>
@@ -36,4 +33,8 @@
     <string name="internet_connection_error">Masalah koneksi internet</string>
     <string name="server_error">Gangguan server</string>
     <string name="unknown_error">Terjadi kesalahan</string>
+    <string name="detail">Detail</string>
+    <string name="add_vehicle">Tambah Kendaraan</string>
+    <string name="add">Tambah</string>
+    <string name="add_vehicle_successful">Tambah Kendaraan berhasil</string>
 </resources>

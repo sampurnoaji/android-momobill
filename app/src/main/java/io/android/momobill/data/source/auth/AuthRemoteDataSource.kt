@@ -3,8 +3,8 @@ package io.android.momobill.data.source.auth
 import io.android.momobill.data.dto.BaseResponse
 import io.android.momobill.data.dto.auth.LoginResponse
 import io.android.momobill.data.dto.auth.UserInfoResponse
-import io.android.momobill.data.request.LoginRequest
-import io.android.momobill.data.request.RegisterRequest
+import io.android.momobill.data.request.auth.LoginRequest
+import io.android.momobill.data.request.auth.RegisterRequest
 import io.android.momobill.data.service.AuthService
 import io.android.momobill.data.util.ApiClient
 import io.android.momobill.vo.ApiResponse

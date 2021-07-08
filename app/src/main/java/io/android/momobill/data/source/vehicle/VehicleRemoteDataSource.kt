@@ -1,7 +1,9 @@
 package io.android.momobill.data.source.vehicle
 
+import io.android.momobill.data.dto.BaseResponse
 import io.android.momobill.data.dto.vehicle.VehicleDetailResponse
 import io.android.momobill.data.dto.vehicle.VehiclesResponse
+import io.android.momobill.data.request.vehicle.AddVehicleRequest
 import io.android.momobill.data.service.VehicleService
 import io.android.momobill.data.util.ApiClient
 import io.android.momobill.vo.ApiResponse
@@ -18,6 +20,13 @@ class VehicleRemoteDataSource(private val service: VehicleService) : ApiClient()
 
     suspend fun getVehicleDetail(vehicleId: Int): Either<Exception, VehicleDetailResponse> {
         return when (val response = call { service.getVehicleDetail(vehicleId) }) {
+            is ApiResponse.Success -> Either.Success(response.data)
+            is ApiResponse.Failure -> Either.Failure(response.cause)
+        }
+    }
+
+    suspend fun addVehicle(request: AddVehicleRequest): Either<Exception, BaseResponse> {
+        return when (val response = call { service.addVehicle(request) }) {
             is ApiResponse.Success -> Either.Success(response.data)
             is ApiResponse.Failure -> Either.Failure(response.cause)
         }

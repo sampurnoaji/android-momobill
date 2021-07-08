@@ -1,14 +1,14 @@
 package io.android.momobill.domain.usecase.auth
 
 import io.android.momobill.abstraction.UseCase
-import io.android.momobill.data.params.LoginParams
+import io.android.momobill.data.params.auth.LoginParams
 import io.android.momobill.domain.entity.auth.LoginData
 import io.android.momobill.domain.entity.auth.UserInfo
 import io.android.momobill.domain.repository.AuthRepository
 import io.android.momobill.vo.Either
 
 class LoginUseCase(private val repository: AuthRepository) :
-    UseCase<LoginParams, LoginData>() {
+    UseCase<LoginParams, LoginData> {
 
     override suspend fun invoke(params: LoginParams): Either<Exception, LoginData> {
         val result = repository.login(params)

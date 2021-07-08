@@ -1,7 +1,7 @@
 package io.android.momobill.domain.repository
 
-import io.android.momobill.data.params.LoginParams
-import io.android.momobill.data.params.RegisterParams
+import io.android.momobill.data.params.auth.LoginParams
+import io.android.momobill.data.params.auth.RegisterParams
 import io.android.momobill.domain.entity.auth.LoginData
 import io.android.momobill.domain.entity.auth.UserInfo
 import io.android.momobill.vo.Either

@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
-import io.android.momobill.data.params.RegisterParams
+import io.android.momobill.data.params.auth.RegisterParams
 import io.android.momobill.domain.usecase.auth.RegisterUseCase
 import io.android.momobill.util.extension.onError
 import io.android.momobill.util.extension.onSuccess

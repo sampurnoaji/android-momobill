@@ -8,10 +8,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import io.android.momobill.R
 import io.android.momobill.databinding.FragmentHomeBinding
 import io.android.momobill.domain.entity.vehicle.Vehicle
+import io.android.momobill.ui.vehicle.add.AddVehicleActivity
 import io.android.momobill.ui.vehicle.detail.VehicleDetailActivity
 import io.android.momobill.util.delegate.viewBinding
 import io.android.momobill.util.extension.gone
 import io.android.momobill.util.extension.showApiError
+import io.android.momobill.util.extension.start
 import io.android.momobill.util.extension.visible
 import io.android.momobill.vo.ViewState
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -34,6 +36,10 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         binding.swipeRefreshLayout.setOnRefreshListener {
             vm.getVehicles()
+        }
+
+        binding.fabAddVehicle.setOnClickListener {
+            start<AddVehicleActivity>()
         }
     }
 

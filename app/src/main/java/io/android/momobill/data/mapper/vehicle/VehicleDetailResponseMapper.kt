@@ -5,7 +5,7 @@ import io.android.momobill.data.dto.vehicle.VehicleDetailResponse
 import io.android.momobill.domain.entity.vehicle.VehicleDetail
 import io.android.momobill.util.extension.orZero
 
-class VehicleDetailResponseMapper : Mapper<VehicleDetailResponse, VehicleDetail>() {
+class VehicleDetailResponseMapper : Mapper<VehicleDetailResponse, VehicleDetail> {
 
     override fun invoke(dto: VehicleDetailResponse): VehicleDetail {
         return VehicleDetail(

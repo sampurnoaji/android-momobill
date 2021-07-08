@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
 import io.android.momobill.R
-import io.android.momobill.data.params.LoginParams
+import io.android.momobill.data.params.auth.LoginParams
 import io.android.momobill.databinding.ActivityLoginBinding
 import io.android.momobill.ui.main.MainActivity
 import io.android.momobill.ui.register.RegisterActivity

@@ -3,8 +3,8 @@ package io.android.momobill.data.service
 import io.android.momobill.data.dto.BaseResponse
 import io.android.momobill.data.dto.auth.LoginResponse
 import io.android.momobill.data.dto.auth.UserInfoResponse
-import io.android.momobill.data.request.LoginRequest
-import io.android.momobill.data.request.RegisterRequest
+import io.android.momobill.data.request.auth.LoginRequest
+import io.android.momobill.data.request.auth.RegisterRequest
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET

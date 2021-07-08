@@ -1,4 +1,4 @@
-package io.android.momobill.data.request
+package io.android.momobill.data.request.auth
 
 import com.squareup.moshi.Json
 

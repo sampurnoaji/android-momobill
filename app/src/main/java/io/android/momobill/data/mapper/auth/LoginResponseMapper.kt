@@ -4,7 +4,7 @@ import io.android.momobill.abstraction.Mapper
 import io.android.momobill.data.dto.auth.LoginResponse
 import io.android.momobill.domain.entity.auth.LoginData
 
-class LoginResponseMapper : Mapper<LoginResponse, LoginData>() {
+class LoginResponseMapper : Mapper<LoginResponse, LoginData> {
 
     override fun invoke(dto: LoginResponse): LoginData {
         return LoginData(

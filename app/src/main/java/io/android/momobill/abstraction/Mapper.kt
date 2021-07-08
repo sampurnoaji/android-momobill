@@ -1,5 +1,5 @@
 package io.android.momobill.abstraction
 
-abstract class Mapper<Dto, Domain> {
-    abstract operator fun invoke(dto: Dto): Domain
+interface Mapper<Dto, Domain> {
+    operator fun invoke(dto: Dto): Domain
 }

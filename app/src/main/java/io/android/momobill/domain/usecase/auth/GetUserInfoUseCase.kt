@@ -5,7 +5,7 @@ import io.android.momobill.domain.entity.auth.UserInfo
 import io.android.momobill.domain.repository.AuthRepository
 import io.android.momobill.vo.Either
 
-class GetUserInfoUseCase(private val repository: AuthRepository) : NoParamsUseCase<UserInfo>() {
+class GetUserInfoUseCase(private val repository: AuthRepository) : NoParamsUseCase<UserInfo> {
 
     override suspend fun invoke(): Either<Exception, UserInfo> {
         return repository.getUserInfo()

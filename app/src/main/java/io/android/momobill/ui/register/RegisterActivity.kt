@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doOnTextChanged
 import io.android.momobill.R
-import io.android.momobill.data.params.RegisterParams
+import io.android.momobill.data.params.auth.RegisterParams
 import io.android.momobill.databinding.ActivityRegisterBinding
 import io.android.momobill.util.delegate.viewBinding
 import io.android.momobill.util.extension.disable
